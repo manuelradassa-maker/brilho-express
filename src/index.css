@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0b2545;
+  --color-secondary: #13315c;
+  --color-bg-light: #eef4fb;
+  --color-cta: #ff9f1c;
+  --color-cta-hover: #e88a00;
+  --color-accent: #ffc857;
+  --color-text: #1b2430;
+  --color-text-secondary: #5b6675;
+  --color-white: #ffffff;
+  --color-whatsapp: #25d366;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", system-ui, -apple-system, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  /* Foco visível para acessibilidade */
+  :focus-visible {
+    outline: 3px solid var(--color-cta);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Respeitar prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .btn-cta {
+    @apply inline-flex items-center justify-center gap-2;
+    min-height: 56px;
+    padding: 0 32px;
+    border-radius: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-white);
+    background-color: var(--color-cta);
+    box-shadow: 0 4px 14px rgba(255, 159, 28, 0.35);
+    transition: all 0.25s ease;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-cta:hover {
+    background-color: var(--color-cta-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 159, 28, 0.45);
+  }
+
+  .btn-cta:active {
+    transform: translateY(0);
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2;
+    min-height: 56px;
+    padding: 0 32px;
+    border-radius: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-white);
+    background-color: var(--color-whatsapp);
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    transition: all 0.25s ease;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-whatsapp:hover {
+    background-color: #21c35a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2;
+    min-height: 56px;
+    padding: 0 32px;
+    border-radius: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-white);
+    background-color: transparent;
+    border: 2px solid var(--color-white);
+    transition: all 0.25s ease;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .btn-nav {
+    @apply inline-flex items-center justify-center;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0 20px;
+    border-radius: 12px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--color-white);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-nav:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 12px 30px rgba(11, 37, 69, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+  }
+}
+
+@layer utilities {
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .scroll-snap-center {
+    scroll-snap-align: center;
+  }
+}
